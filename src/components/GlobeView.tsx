@@ -180,6 +180,15 @@ export const GlobeView = ({ onExit }: GlobeViewProps) => {
   const [isFlat, setIsFlat] = useState(false);
   const [hoveredCountry, setHoveredCountry] = useState<string | null>(null);
 
+  // Missing states for GameMenu and GlobeModel
+  const [showLocked, setShowLocked] = useState(true);
+  const [showLines, setShowLines] = useState(true);
+  const [soundOn, setSoundOn] = useState(true);
+
+  const handleToggleLocked = useCallback(() => setShowLocked(prev => !prev), []);
+  const handleToggleLines = useCallback(() => setShowLines(prev => !prev), []);
+  const handleToggleSound = useCallback(() => setSoundOn(prev => !prev), []);
+
   const tooltipRef = useRef<HTMLDivElement>(null);
   const controlsRef = useRef<any>(null);
   const zoomRef = useRef(0);
@@ -212,7 +221,17 @@ export const GlobeView = ({ onExit }: GlobeViewProps) => {
       onMouseMove={handleMouseMove}
     >
       {/* Game Navigation */}
-      <GameMenu activePage={activePage} onPageChange={setActivePage} onExit={onExit} />
+      <GameMenu 
+        activePage={activePage} 
+        onPageChange={setActivePage} 
+        onExit={onExit}
+        showLocked={showLocked}
+        showLines={showLines}
+        soundOn={soundOn}
+        onToggleLocked={handleToggleLocked}
+        onToggleLines={handleToggleLines}
+        onToggleSound={handleToggleSound}
+      />
 
       {/* 3D Canvas */}
       <div style={{
@@ -238,6 +257,8 @@ export const GlobeView = ({ onExit }: GlobeViewProps) => {
           <GlobeModel
             onCountryHover={setHoveredCountry}
             isFlat={isFlat}
+            showLocked={showLocked}
+            showLines={showLines}
           />
         </Canvas>
       </div>
