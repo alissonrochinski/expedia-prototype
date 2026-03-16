@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cd \"/Users/alissonrochinski/Documents/_Projetos Codados/Expedia Prototype\" && npx tsc --noEmit 2>&1 | head -30)",
+      "Bash(cd \"/Users/alissonrochinski/Documents/_Projetos Codados/Expedia Prototype\" && npx vite build 2>&1 | tail -10)",
+      "Bash(cd \"/Users/alissonrochinski/Documents/_Projetos Codados/Expedia Prototype\" && npx tsc --noEmit 2>&1 | head -20)",
+      "Bash(cd \"/Users/alissonrochinski/Documents/_Projetos Codados/Expedia Prototype\" && npx vite build 2>&1 | tail -5)",
+      "Bash(cd \"/Users/alissonrochinski/Documents/_Projetos Codados/Expedia Prototype\" && npx vite build 2>&1 | tail -8)",
+      "Bash(cd \"/Users/alissonrochinski/Documents/_Projetos Codados/Expedia Prototype\" && npx tsc --noEmit 2>&1 && npx vite build 2>&1 | tail -5)",
+      "Bash(cd \"/Users/alissonrochinski/Documents/_Projetos Codados/Expedia Prototype\" && npx tsc --noEmit 2>&1 && echo \"OK\")",
+      "Bash(cd \"/Users/alissonrochinski/Documents/_Projetos Codados/Expedia Prototype\" && npx tsc --noEmit 2>&1 && npx vite build 2>&1 | tail -3)",
+      "Bash(cd \"/Users/alissonrochinski/Documents/_Projetos Codados/Expedia Prototype\" && npx tsc --noEmit 2>&1 | head -10)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "Bash(cd \"/Users/alissonrochinski/Documents/_Projetos Codados/Expedia Prototype\" && npx tsc --noEmit 2>&1 | head -5)",
+      "Bash(curl -s 'https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson' | python3 -c \"\nimport json, sys\ndata = json.load\\(sys.stdin\\)\nnames = [f['properties'].get\\('name','?'\\) for f in data['features']]\n# Check which PINNED names match\npinned = ['USA','Canada','Mexico','Costa Rica','Cuba','Brazil','Argentina','Colombia','Peru','Chile','Ecuador','Venezuela','Bolivia','Uruguay','France','England','Spain','Italy','Germany','Greece','Portugal','Turkey','Norway','Croatia','Switzerland','Egypt','South Africa','Morocco','Kenya','Nigeria','Ghana','Ethiopia','Madagascar','Senegal','Algeria','Mozambique','Cameroon','Uganda','Japan','Thailand','India','China','South Korea','Indonesia','Australia','Vietnam','Philippines','New Zealand']\nfor p in pinned:\n    if p not in names:\n        # find similar\n        similar = [n for n in names if p.lower\\(\\) in n.lower\\(\\) or any\\(w in n.lower\\(\\) for w in p.lower\\(\\).split\\(\\)\\)]\n        print\\(f'MISSING: {p} -> similar: {similar}'\\)\n\")"
+    ]
+  }
+}
